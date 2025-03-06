@@ -14,7 +14,8 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install pytest  # Only needed if pytest is not in requirements.txt
+          pip install pytest
+          pip install -e .  # Install the app as a package
       - name: Run Flake8 Code Quality Check
         run: flake8 . --count --statistics
       - name: Run Unit Tests
