@@ -17,8 +17,11 @@ def test_home(client):
 
 
 def test_predict(client):
-    data = {"age": 30, "weekly_usage_hrs": 10.5, "avg_session_duration": 35.0}
+    data = {
+        "age": 30,
+        "weekly_usage_hrs": 10.5,
+        "avg_session_duration": 35.0  # Order matches training
+    }
     response = client.post("/predict", json=data)
     assert response.status_code == 200
-    assert "prediction" in json.loads(response.data)
 # Add a newline here

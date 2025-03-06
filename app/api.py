@@ -15,10 +15,12 @@ def home():
     return "Premium Subscription Prediction API"
 
 
+# File: app/api.py
 @app.route("/predict", methods=["POST"])
 def predict():
     data = request.json
-    features = pd.DataFrame([data])
+    # Ensure feature order matches training data
+    features = pd.DataFrame([data], columns=["age", "weekly_usage_hrs", "avg_session_duration"])
     prediction = model.predict(features)
     return jsonify({"prediction": int(prediction[0])})
 
