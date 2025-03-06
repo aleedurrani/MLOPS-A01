@@ -1,7 +1,6 @@
 # File: tests/test_api.py
 import pytest
 from app.api import app
-import json
 
 
 @pytest.fixture
