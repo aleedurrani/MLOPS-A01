@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'master', url: 'https://github.com/aleedurrani/MLOPS-A01.git'
+                git branch: 'main', url: 'https://github.com/aleedurrani/MLOPS-A01.git'
             }
         }
         stage('Build Docker Image') {
