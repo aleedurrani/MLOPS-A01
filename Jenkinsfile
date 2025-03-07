@@ -10,6 +10,13 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/aleedurrani/MLOPS-A01.git'
             }
         }
+        stage('Check Docker') {
+            steps {
+                script {
+                sh 'docker --version'
+                }
+            }
+        }
         stage('Build Docker Image') {
             steps {
                 script {
