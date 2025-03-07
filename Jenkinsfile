@@ -27,12 +27,14 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-creds') {
-                        docker.image("${DOCKER_IMAGE}:${env.BUILD_ID}").push()
+                    withDockerRegistry([url: "https://registry.hub.docker.com", credentialsId: "dockerhub-creds"]) {
+                        sh 'docker login -u afnannaseem837 --password-stdin < credentialsId'
+                        sh 'docker push afnannaseem837/mlops-a01:7'
                     }
                 }
             }
         }
+
     }
     post {
         success {
