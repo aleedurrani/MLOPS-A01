@@ -6,7 +6,7 @@ import pandas as pd
 
 app = Flask(__name__)
 
-# Load trained modell
+# Load trained model
 model = joblib.load("model/premium_subscription_model.pkl")
 
 
